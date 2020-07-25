@@ -22,8 +22,11 @@ let addition = function(num1, num2){
 }
 
 app.get('/add_operator', function(request, response){
-    
-    let sum = addition(5,6);
+    num1 = parseInt(request.query.num1);
+    num2 = parseInt(request.query.num2);
+    console.log(num1); 
+    console.log(num2); 
+    let sum = addition(num1,num2);
     response.send('The sum is '+ sum)     
 })
 
