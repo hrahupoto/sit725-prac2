@@ -2,21 +2,24 @@
   "name": "sit725-prac2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hrahupoto/sit725-prac2.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [],
+  "author": "Hassan Abbas Rahupoto",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/hrahupoto/sit725-prac2/issues"
   },
-  "homepage": "https://github.com/hrahupoto/sit725-prac2#readme",
-  "dependencies": {
-    "express": "*"
-  }
+  "homepage": "https://github.com/hrahupoto/sit725-prac2#readme"
 }
