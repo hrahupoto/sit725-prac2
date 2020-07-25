@@ -37,7 +37,7 @@ let accounts = [
     {id:3, name: 'jim', deposit: 15}
 ] 
 
-//Filter's user account by name
+//Filter's user account by id and name (complete)
 app.get('/user_account', function(request,response){
     user_id = request.query.user_id;
     user = request.query.user;
