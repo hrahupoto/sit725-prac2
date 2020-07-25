@@ -39,12 +39,13 @@ let accounts = [
 
 //Filter's user account by name
 app.get('/user_account', function(request,response){
+    user_id = request.query.user_id;
     user = request.query.user;
     let data = accounts.filter(function(account){
-        if(account.name === user){
-            return account.name;
+        if(account.id == user_id && account.name == user){
+            return account.id;
         }
-        
+       
     });
 
     console.log(JSON.stringify(data));
