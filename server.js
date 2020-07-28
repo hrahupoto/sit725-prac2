@@ -63,6 +63,7 @@ class Node{
 }
 
 //linkedlist class with methods
+//Linked list works
 class LinkedList{
     constructor(){
         this.head = null;
