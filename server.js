@@ -62,7 +62,7 @@ class Node{
     }
 }
 
-//linkedlist with methods
+//linkedlist class with methods
 class LinkedList{
     constructor(){
         this.head = null;
@@ -80,7 +80,8 @@ class LinkedList{
             this.head = node;
         }else{
             current_node = this.head;
-            while(current_node.next){
+            while(current_node.next)//if undefined return false
+            {
                 current_node = current_node.next;
             }
             current_node.next = node;
