@@ -1,5 +1,6 @@
 const express = require('express');
-const { isString } = require('util');
+const { isString, isNull } = require('util');
+const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const app = express()
 var result = 0, num1 = 0, num2 = 0, user = '', string = 'User not found';
 
@@ -50,6 +51,66 @@ app.get('/user_account', function(request,response){
 
     console.log(JSON.stringify(data));
     response.send('The user details are '+ JSON.stringify(data))
+})
+
+class Node{
+    constructor(element, next = null){
+        this.element=element;
+        this.next = next;
+    }
+}
+
+class LinkedList{
+    constructor(){
+        this.head = null;
+        this.size = 0;
+    }
+
+    add(element){
+        var node = new Node(element);
+
+        var current_node;
+
+        if (this.head == null){
+            this.head = node;
+        }else{
+            current_node = this.head;
+            while(current_node.next){
+                current_node = current_node.next;
+            }
+            current_node.next = node;
+        }
+        this.size++
+    }
+
+    printlist(){
+        var current_node = this.head;
+        var str = [];
+        var i = 0;
+
+        while(current_node){
+            str[i]= current_node.element;
+            current_node = current_node.next;
+            i++;
+        }
+        console.log(str);
+    }
+}
+
+app.get('/user_account_ll', function(request,response){
+    const ll = new LinkedList();
+    
+    ll.add(accounts[0]);
+    ll.add(accounts[1]);
+    ll.add(accounts[2]);
+
+    // user_id = request.query.user_id;
+    // user = request.query.user;
+
+    ll.printlist();
+    response.send('How do you do?');
+    // console.log(ll.extract(user_id,user));
+    // response.send('The user details according to linked list are: '+ JSON.stringify(ll.extract(user_id, user)))
 })
 
 //start server and listen on port 3000
