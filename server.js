@@ -89,7 +89,7 @@ class LinkedList{
     }
 
     //print the list using next to iterate
-    printlist(){
+    printlist(user_id,user){
         var current_node = this.head;
         var complete = [];
         var i = 0;
@@ -99,7 +99,15 @@ class LinkedList{
             current_node = current_node.next;
             i++;
         }
-        console.log(complete);
+        //console.log(complete);
+
+        let data = complete.filter(function(account){
+            if(account.id == user_id && account.name == user){
+                return account.id;
+            }
+           
+            });
+            return data;
     }
 }
 
@@ -110,13 +118,11 @@ app.get('/user_account_ll', function(request,response){
     ll.add(accounts[1]);
     ll.add(accounts[2]);
 
-    // user_id = request.query.user_id;
-    // user = request.query.user;
+    user_id = request.query.user_id;
+    user = request.query.user;
 
-    ll.printlist();
-    response.send('How do you do?');
-    // console.log(ll.extract(user_id,user));
-    // response.send('The user details according to linked list are: '+ JSON.stringify(ll.extract(user_id, user)))
+    
+    response.send('The user details according to linked list are: '+ JSON.stringify(ll.printlist(user_id,user)))
 })
 
 //start server and listen on port 3000
