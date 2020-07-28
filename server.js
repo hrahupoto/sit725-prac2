@@ -56,9 +56,9 @@ app.get('/user_account', function(request,response){
 
 //single node class
 class Node{
-    constructor(element, next = null){
+    constructor(element){
         this.element=element;
-        this.next = next;
+        this.next = null;
     }
 }
 
@@ -121,7 +121,7 @@ app.get('/user_account_ll', function(request,response){
     user_id = request.query.user_id;
     user = request.query.user;
 
-    
+    console.log(ll.printlist(user_id,user));
     response.send('The user details according to linked list are: '+ JSON.stringify(ll.printlist(user_id,user)))
 })
 
