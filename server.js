@@ -1,6 +1,7 @@
 const express = require('express');
 const { isString, isNull } = require('util');
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
+const { copyFile } = require('fs');
 const app = express()
 var result = 0, num1 = 0, num2 = 0, user = '', string = 'User not found';
 
@@ -53,6 +54,7 @@ app.get('/user_account', function(request,response){
     response.send('The user details are '+ JSON.stringify(data))
 })
 
+//single node class
 class Node{
     constructor(element, next = null){
         this.element=element;
@@ -60,12 +62,15 @@ class Node{
     }
 }
 
+//linkedlist with methods
 class LinkedList{
     constructor(){
         this.head = null;
         this.size = 0;
     }
 
+    //adding elements by new node each time 
+    //and iterate through using next
     add(element){
         var node = new Node(element);
 
@@ -83,17 +88,18 @@ class LinkedList{
         this.size++
     }
 
+    //print the list using next to iterate
     printlist(){
         var current_node = this.head;
-        var str = [];
+        var complete = [];
         var i = 0;
 
         while(current_node){
-            str[i]= current_node.element;
+            complete[i]= current_node.element;
             current_node = current_node.next;
             i++;
         }
-        console.log(str);
+        console.log(complete);
     }
 }
 
