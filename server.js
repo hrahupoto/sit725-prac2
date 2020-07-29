@@ -113,6 +113,13 @@ class LinkedList{
     }
 }
 
+//linked list is prefered over an array where:
+// 1. You do not know how many items will be there in the list.
+// 2. You want to be able to insert/remove an item anywhere in the list i.e front, back or middle  
+// 3. You want efficient memory utilization.
+// 4. You would not need to access random position for any element.
+// 5. You would not need speed to iterate through the list.
+
 app.get('/user_account_ll', function(request,response){
     const ll = new LinkedList();
     
